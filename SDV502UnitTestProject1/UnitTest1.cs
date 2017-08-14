@@ -8,11 +8,8 @@ namespace SDV502UnitTestProject1
     public class UnitTest1
     {
         [TestMethod]
-        public void TestMethod1()
+        public void CompareColourNelsonTicket()
         {
-
-            string[] pinkZone = new string[11] { "Nelson", "Motueka", "Mapua", "Atawhai", "Matai", "Hope", "Brightwater", "Wakefield", "Renwick", "Picton", "Blenheim" };
-
             //arrange
             ParcelQuoteFromNelson quoteNelson = new ParcelQuoteFromNelson();
             //act
@@ -22,7 +19,7 @@ namespace SDV502UnitTestProject1
         }
 
         [TestMethod]
-        public void TestMethod2()
+        public void CompareColourBlenheimTicket()
         {
             //arrange
             ParcelQuoteFromNelson quoteBlenheim = new ParcelQuoteFromNelson();
@@ -33,9 +30,10 @@ namespace SDV502UnitTestProject1
         }
 
         [TestMethod]
-        public void TestMethod3()
+        public void CompareColourAllTicket()
         {
             ParcelQuoteFromNelson quoteFromNelson = new ParcelQuoteFromNelson();
+
             string[] pinkZones = new string[] { "Nelson", "Motueka", "Mapua", "Atawhai", "Matai", "Hope", "Brightwater", "Wakefield", "Renwick", "Picton", "Blenheim" };
 
             foreach (string towns in pinkZones)
@@ -43,6 +41,20 @@ namespace SDV502UnitTestProject1
                 string ticketColour = quoteFromNelson.GetDestinationZone(towns);
                 Assert.AreEqual("Pink", ticketColour);
             }
+        }
+
+        [TestMethod]
+        public void GetTicketPriceOfNelson()
+        {
+            //arrange
+            ParcelQuoteFromNelson quoteFromNelson = new ParcelQuoteFromNelson();
+
+            //act
+            ParcelQuoteResult quoteResult = quoteFromNelson.CalculateQuote(12, "Pink");
+
+            //assert
+            Assert.AreEqual(0, quoteResult.ExcessTickets);
+            Assert.AreEqual(4.15m, quoteResult.Price);
         }
 
 
