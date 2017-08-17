@@ -142,21 +142,6 @@ namespace SDV502UnitTestProject1
             }
         }
 
-        [TestMethod]
-        public void GetTicketPriceOfNelson()
-        {
-            //arrange
-            ParcelQuoteFromNelson quoteFromNelson = new ParcelQuoteFromNelson();
-
-            //act
-            ParcelQuoteResult quoteResult = quoteFromNelson.CalculateQuote(12, "Pink");
-
-            //assert
-            Assert.AreEqual(0, quoteResult.ExcessTickets);
-            Assert.AreEqual(4.15m, quoteResult.Price);
-        }
-
-
     }
 
     [TestClass]
