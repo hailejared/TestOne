@@ -29,7 +29,7 @@ namespace SDVUnitTestProject1TicketPricing
 
             //act
             ParcelQuoteResult quoteResult = quoteFromHavelock.CalculateQuote(12, "Blue");
-
+            
             //assert
             Assert.AreEqual(0, quoteResult.ExcessTickets);
             Assert.AreEqual(6.95m, quoteResult.Price);
