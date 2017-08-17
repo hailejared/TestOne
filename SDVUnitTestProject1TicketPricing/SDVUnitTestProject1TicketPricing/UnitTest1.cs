@@ -63,5 +63,61 @@ namespace SDVUnitTestProject1TicketPricing
             Assert.AreEqual(12.95m, quoteResult.Price);
         }
 
+        [TestMethod]
+        public void GetTicketPriceOfReeftonOno()
+        {
+            //arrange
+            ParcelQuoteFromNelson quoteFromReefton = new ParcelQuoteFromNelson();
+
+            //act
+            ParcelQuoteResult quoteResult = quoteFromReefton.CalculateQuote(16, "Orange");
+
+            //assert
+            Assert.AreEqual(1, quoteResult.ExcessTickets);
+            Assert.AreEqual(19.15m, quoteResult.Price);
+        }
+
+        [TestMethod]
+        public void GetTicketPriceOfReeftonDos()
+        {
+            //arrange
+            ParcelQuoteFromNelson quoteFromReefton = new ParcelQuoteFromNelson();
+
+            //act
+            ParcelQuoteResult quoteResult = quoteFromReefton.CalculateQuote(22, "Orange");
+
+            //assert
+            Assert.AreEqual(2, quoteResult.ExcessTickets);
+            Assert.AreEqual(25.35m, quoteResult.Price);
+        }
+
+        [TestMethod]
+        public void GetTicketPriceOfMurchisonOno()
+        {
+            //arrange
+            ParcelQuoteFromNelson quoteFromMurchison = new ParcelQuoteFromNelson();
+
+            //act
+            ParcelQuoteResult quoteResult = quoteFromMurchison.CalculateQuote(16, "Lime");
+
+            //assert
+            Assert.AreEqual(1, quoteResult.ExcessTickets);
+            Assert.AreEqual(14.90m, quoteResult.Price);
+        }
+
+        [TestMethod]
+        public void GetTicketPriceOfMurchisonDos()
+        {
+            //arrange
+            ParcelQuoteFromNelson quoteFromMurchison = new ParcelQuoteFromNelson();
+
+            //act
+            ParcelQuoteResult quoteResult = quoteFromMurchison.CalculateQuote(16, "Lime");
+
+            //assert
+            Assert.AreEqual(1, quoteResult.ExcessTickets);
+            Assert.AreEqual(14.90m, quoteResult.Price);
+        }
+
     }
 }
